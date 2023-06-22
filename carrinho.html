@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <script src="https://kit.fontawesome.com/250aeba424.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 0;
+            background-color: mediumseagreen;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        header nav .logo-header {
+            width: 170px;
+            max-width: 100%;
+            height: 150px;
+            margin-left: 100px;
+        }
+
+        header nav ul {
+            float: right;
+            margin-right: 20px;
+            margin-top: 40px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        header nav ul #actual_page {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-transform: uppercase;
+            font-size: 22px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 22px;
+            padding: 3px;
+        }
+
+        header nav ul li a:hover {
+            color: black;
+            transition: 0.5s;
+        }
+
+        header nav .checkbtn {
+            font-size: 30px;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        header nav ul li i {
+            margin-right: 5px;
+        }
+
+        header nav #check {
+            display: none;
+        }
+
+        @media (max-width: 869px) {
+            header nav .checkbtn {
+                display: block;
+            }
+
+            header nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: mediumseagreen;
+                top: 110px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            header nav ul li a {
+                font-size: 20px;
+            }
+
+            #check:checked ~ ul {
+                left: 0;
+            }
+
+            header nav .logo-header {
+                margin-left: 0;
+            }
+        }
+
+
+    </style>
+
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img src="./logo.png" class="logo-header">
+            <ul>
+                <li><a href="index.html" class="navbar-link">Início</a></li>
+                <li><a href="login.html" class="navbar-link">Login</a></li>
+                <li><a href="register.html" class="navbar-link">Registro</a></li>
+                <li><a href="products.html" class="navbar-link">Produtos</a></li>
+                <li id="actual_page"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>Carrinho</li>
+            </ul>
+        </nav>
+    </header>

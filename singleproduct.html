@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <script src="https://kit.fontawesome.com/250aeba424.js" crossorigin="anonymous"></script>
+
+    <style>
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        header {
+            display: flex;
+            flex-direction: column;
+            width: 100%;
+            padding: 20px 0;
+            background-color: rgb(80,100,12);
+            color: white;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+
+        }
+        
+        header nav {
+            display: flex;
+            justify-content: space-around;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            margin: 0 5px;
+        }
+
+        header nav ul #actual_page {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            font-size: 22px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            font-weight: 300;
+            font-size: 22px;
+            padding: 3px;
+        }
+
+        header nav ul li a:hover {
+            color: black;
+            transition: 0.5s;
+        }
+
+        header nav .checkbtn {
+            font-size: 30px;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        header nav h1 {
+            font-weight: normal;
+        }
+
+        header nav ul li i {
+            margin-right: 5px;
+        }
+
+        header nav #check {
+            display: none;
+        }
+
+        header nav form {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+ 
+
+        @media (max-width: 920px) {
+            header nav .checkbtn {
+                display: block;
+            }
+
+            header nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: mediumseagreen;
+                top: 110px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            header nav ul li a {
+                font-size: 20px;
+            }
+
+            #check:checked ~ ul {
+                left: 0;
+            }
+
+            header nav .logo-header {
+                margin-left: 0;
+            }
+        }   
+
+    body{
+        padding: 0;
+        margin: 0;
+	    animation: gradient 15s ease infinite;
+
+    }
+
+    @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+
+
+
+
+    /* ============================= Main ================================== */
+
+
+
+    main {
+    width: 100%;
+    display: flex;
+    max-width: 1400px;
+    flex-direction: column;
+    padding-inline: 20px;
+    margin: 40px auto;
+    }
+
+    main #productcontainer {
+        height: 100%;
+        display: flex;
+        flex-wrap: wrap;  
+        background-color: rgb(255, 255, 255);
+        border-radius: 15px 15px;
+        padding: 15px;
+        scroll-padding: 0;
+    }
+
+    /* ============================= Product-Image ================================== */
+
+
+    
+    main #productcontainer .product-image {
+        width: 50%;
+        display: flex;
+        flex-direction: column;
+        height:100%;
+    }
+
+    main #productcontainer .product-image h2 {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        margin-bottom: 20px; /* Adiciona espaçamento inferior entre o título e o restante do conteúdo */
+    }
+
+    main #productcontainer .product-image figure {
+        margin-left: 20px;
+        width:500px;
+        height: 70%;
+    }
+
+    main #productcontainer .product-image figure img {
+        height: 100%;
+        width: 100%;
+        border-radius: 15px 15px;
+    }
+
+
+
+
+    /* ============================= Product-Details ================================== */
+
+
+    main #productcontainer .product-details {
+        height:100%;
+        display: flex;
+        flex-direction: column;
+        width:50%;
+        margin-top: 50px;
+        gap:250px;
+        text-align: right;
+    }
+
+
+
+    main #productcontainer .product-details p{
+        font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+    }
+
+    main #productcontainer .product-details h2 {
+        font-weight: normal;
+        margin-bottom: 10px;
+    }
+
+    main #productcontainer .product-details .button-container {
+        display: flex;
+        justify-content: center;
+    }
+
+    main #productcontainer .product-details .button-container button{
+        font-family: Hack, monospace;
+    background: #bbff00;
+    color: #1d1d1d;
+    cursor: pointer;
+    font-size: 2em;
+    padding: 1.5rem;
+    border: 0;
+    transition: all 0.5s;
+    border-radius: 10px;
+    width: auto;
+    position: relative;
+    min-width: 250px;
+
+    &::after {
+        content: "\f07a";
+        font-family: "Font Awesome 6";
+        font-weight: 400;
+        position: absolute;
+        left: 90%;
+        top: 54%;
+        right: 0;
+        bottom: 0;
+        opacity: 0;
+        transform: translate(-50%, -50%);
+
+    }
+
+    &:hover {
+        background: #2b2bff;
+        transition: all 0.5s;
+        border-radius: 10px;
+        box-shadow: 0px 6px 15px #0000ff61;
+        padding: 1.5rem 3rem 1.5rem 1.5rem;
+        color: #ffffff;
+
+        &::after {
+            opacity: 1;
+            transition: all 0.5s;
+            color: #ffffff;
+
+        }
+    }
+
+
+}
+
+        
+
+        
+        main #productcontainer .product-details .subproduct-details {
+            display: flex;
+            justify-content: space-between;
+        }
+
+
+
+
+
+        @media only screen and (max-width: 1100px) {
+
+        main #productcontainer .product-image figure {
+            width: 100%;
+        }
+
+        main #productcontainer .product-image figure img {
+            width: 70%;
+        }
+
+        main #productcontainer .product-details {
+            gap: 30px;
+            font-size: 6px;
+        }
+    }
+        
+    </style>
+
+</head>
+
+
+
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <h1>Allgreens</h1>
+            <ul>
+                <li><a href="index.html" class="navbar-link">Home</a></li>
+                <li><a href="login.html" class="navbar-link">Login</a></li>
+                <li><a href="register.html" class="navbar-link">Registro</a></li>
+                <li><a href="products.html" class="navbar-link">Produtos</a></li>
+                <li class="cart"><a href="carrinho.html" class="navbar-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>Carrinho</a></li>
+
+            </ul>
+
+        </nav>
+    </header>
+
+
+
+    <main>
+        <div id="productcontainer"></div>
+    </main>
+
+
+
+    <script>
+        const productContainer = document.getElementById('productcontainer');
+
+        const urlParams = new URLSearchParams(window.location.search);
+        const productId = urlParams.get('id');
+
+        fetch('produtos.json')
+          .then(response => response.json())
+          .then(data => {
+            const product = data.data.find(p => p.id === productId);
+
+            if (product) {
+              displayProduct(product);
+            } else {
+              productContainer.innerHTML = 'Produto não encontrado';
+            }
+          });
+
+        function displayProduct(product) {
+          const imageDiv = document.createElement('div');
+          imageDiv.classList.add('product-image');
+
+          const detailsDiv = document.createElement('div');
+          detailsDiv.classList.add('product-details');
+
+          const nameElement = document.createElement('h1');
+          const figureElement = document.createElement('figure');
+          const imageElement = document.createElement('img');
+
+          nameElement.textContent = product.name;
+          imageElement.src = product.image;
+
+          figureElement.appendChild(imageElement);
+
+          imageDiv.appendChild(figureElement);
+
+          const descriptionElement = document.createElement('h2');
+          descriptionElement.textContent = product.description;
+
+          const priceElement = document.createElement('h3');
+          priceElement.textContent = `Preço: ${product.price} €`;
+
+          const stockElement = document.createElement('h3');
+          stockElement.textContent = `Estoque: ${product.stock} unidades`;
+
+          const whoCreated = document.createElement('p');
+          whoCreated.textContent = `Created by ${product.whocreated}`;
+
+          const whenCreated = document.createElement('p');
+          whenCreated.textContent = `Created at ${product.whencreated}`;
+
+          const infoContainer = document.createElement('div');
+          infoContainer.classList.add('info-container');
+          infoContainer.appendChild(nameElement);
+          infoContainer.appendChild(descriptionElement);
+          infoContainer.appendChild(priceElement);
+          infoContainer.appendChild(stockElement);
+          infoContainer.appendChild(whoCreated);
+          infoContainer.appendChild(whenCreated);
+
+          detailsDiv.appendChild(infoContainer);
+
+          const addToCartButton = document.createElement('button');
+          addToCartButton.textContent = 'Adicionar ao Carrinho';
+
+          const buttonContainer = document.createElement('div');
+          buttonContainer.classList.add('button-container');
+          buttonContainer.appendChild(addToCartButton);
+
+          detailsDiv.appendChild(buttonContainer);
+
+          productContainer.appendChild(imageDiv);
+          productContainer.appendChild(detailsDiv);
+        }
+    </script>
+</body>
+</html>

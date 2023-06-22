@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Lucas e Rodrigo</title>
+    <link  rel="stylesheet" href="style.css">
+    <script src="https://kit.fontawesome.com/250aeba424.js" crossorigin="anonymous"></script>
+</head>
+<body>
+    <header>
+        <nav>
+
+            <input type="checkbox" id="check">
+
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+
+            <img src="./logo.png" class="logo-header">
+            <ul>
+                <li id="home_text">Início</li>
+                <li><a href="login.html" class="navbar-link">Login</a></li>
+                <li><a href="register.html" class="navbar-link">Registro</a></li>
+                <li><a href="products.html" class="navbar-link">Produtos</a></li>
+                <li class="cart"><a href="carrinho.html" class="navbar-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>Carrinho</a></li>
+            </ul>
+        
+        </nav>
+    </header>
+
+    <main>
+    <section class="banner">
+        <div class="texto">
+            <h1 class="titulo"> Junta te a mais de +1000 clientes </h1>
+            <h2 class="sub-titulo"> e faz aqui a tua escolha! </h2>
+            <div class="botoes">
+                <a href="login.html"><button class="overlay1"> Faz Login </button></a>
+                <a href="register.html"><button class="overlay2"> Registra-te </button></a>
+            </div>
+        </div>
+    </section>
+    <main>
+        <script>
+            const checkBtn = document.getElementById('check');
+            const body = document.querySelector('body');
+
+            checkBtn.addEventListener('change', function() {
+                if (checkBtn.checked) {
+                body.classList.add('no-scroll');
+                } else {
+                body.classList.remove('no-scroll');
+                }
+            });
+        
+        </script>
+</body>
+</html>

@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Produtos</title>
+    <script src="https://kit.fontawesome.com/250aeba424.js" crossorigin="anonymous"></script>
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Poppins', sans-serif;
+        }
+
+        header {
+            width: 100%;
+            padding: 20px 0;
+            background-color: mediumseagreen;
+            color: white;
+            font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+        }
+
+        header nav .logo-header {
+            width: 170px;
+            max-width: 100%;
+            height: 150px;
+            margin-left: 100px;
+        }
+
+        header nav ul {
+            float: right;
+            margin-right: 20px;
+            margin-top: 40px;
+        }
+
+        header nav ul li {
+            display: inline-block;
+            line-height: 80px;
+            margin: 0 5px;
+        }
+
+        header nav ul #actual_page {
+            text-decoration: underline;
+            text-underline-offset: 3px;
+            text-transform: uppercase;
+            font-size: 22px;
+        }
+
+        header nav ul li a {
+            text-decoration: none;
+            color: var(--black);
+            text-transform: uppercase;
+            font-weight: 300;
+            font-size: 22px;
+            padding: 3px;
+        }
+
+        header nav ul li a:hover {
+            color: black;
+            transition: 0.5s;
+        }
+
+        header nav .checkbtn {
+            font-size: 30px;
+            float: right;
+            line-height: 80px;
+            margin-right: 40px;
+            cursor: pointer;
+            display: none;
+        }
+
+        header nav ul li i {
+            margin-right: 5px;
+        }
+
+        header nav #check {
+            display: none;
+        }
+
+        header nav form {
+            display: inline-block;
+            margin-left: 20px;
+        }
+
+        header nav form input[type="text"] {
+            padding: 5px;
+            border: none;
+            border-radius: 5px;
+        }
+
+        header nav form input[type="submit"] {
+            padding: 5px 10px;
+            background-color: #ffffff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+
+        @media (max-width: 869px) {
+            header nav .checkbtn {
+                display: block;
+            }
+
+            header nav ul {
+                position: fixed;
+                width: 100%;
+                height: 100vh;
+                background-color: mediumseagreen;
+                top: 110px;
+                left: -100%;
+                text-align: center;
+                transition: all .5s;
+            }
+
+            header nav ul li {
+                display: block;
+                margin: 50px 0;
+                line-height: 30px;
+            }
+
+            header nav ul li a {
+                font-size: 20px;
+            }
+
+            #check:checked ~ ul {
+                left: 0;
+            }
+
+            header nav .logo-header {
+                margin-left: 0;
+            }
+        }
+
+
+    body{
+        padding: 0;
+        margin: 0;
+        background-image: linear-gradient(-45deg, #9ff07a, #6bd6bf, #6dd34e);
+	    animation: gradient 15s ease infinite;
+    }
+
+        @keyframes gradient {
+        0% {
+            background-position: 0% 50%;
+        }
+        50% {
+            background-position: 100% 50%;
+        }
+        100% {
+            background-position: 0% 50%;
+        }
+    }
+    
+    main {
+        width: 100%;
+        max-width: 100%;
+        display: flex;
+        flex-direction: column;
+        padding-inline: 20px;
+        margin: 40px auto;
+        justify-content: center; 
+    }
+
+    main #dataContainer {
+        width: auto;
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 20px;
+    }
+
+    main #dataContainer a {
+        text-decoration: none;
+        color: inherit;
+    }
+
+    main #dataContainer .produtos-showcase {
+        flex: 0 0 calc(24% - 20px);
+        text-align: center;
+        border-radius: 15px;
+        padding: 10px;
+        background-color: white;
+    }
+    
+
+        @media (max-width: 767px) {
+    main #dataContainer .produtos-showcase {
+        width:40%
+    }
+    }
+
+        @media (max-width: 767px) {
+         main #dataContainer {
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+    }
+
+    .produtos-showcase:hover {
+        transform: translateY(-5px);
+        box-shadow: 0px 10px 20px 2px rgba(0, 0, 0, 0.25);
+        transition: 0.5s;
+    }
+
+    main #dataContainer .produtos-showcase:last-child {
+        margin-right: 0;
+    }
+
+    main #dataContainer .produtos-showcase h3 {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 20px;
+    }
+
+    main #dataContainer .produtos-showcase p {
+        font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+        margin-bottom: 20px;
+    }
+
+
+    main #dataContainer .produtos-showcase figure {
+        display: inline-block;
+    }
+
+    main #dataContainer .produtos-showcase figure img {
+        width: 70%;
+        height: auto;
+        border-radius: 5px;
+    }
+
+
+    main #dataContainer .produtos-showcase button {
+        border-radius: 5px 5px;
+        cursor: pointer;
+        padding: 3px;
+        background-color: transparent;
+    }
+
+    main #dataContainer .produtos-showcase button:hover {
+        transform: translateY(-1px);
+        transition: 0.5s;
+        background-color: greenyellow;
+    }
+
+
+
+
+        
+    </style>
+
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <img src="./logo.png" class="logo-header">
+            <ul>
+                <li><a href="index.html" class="navbar-link">Início</a></li>
+                <li><a href="login.html" class="navbar-link">Login</a></li>
+                <li><a href="register.html" class="navbar-link">Registro</a></li>
+                <li id="actual_page">Produtos</li>
+                <li class="cart"><a href="carrinho.html" class="navbar-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>Carrinho</a></li>
+                <i id="user-icon" class="fa-solid fa-user" style="color: #ffffff; display: none;"></i>
+                <span class="user-name"></span>
+
+
+            </ul>
+            <form id="searchForm">
+                <input type="text" id="searchInput" placeholder="Buscar produto...">
+                <input type="submit" value="Buscar" id="searchButton">
+            </form>
+        </nav>
+    </header>
+
+    <main>
+        <div id="dataContainer">
+        </div>
+    </main>
+
+    <script>
+        const dataContainer = document.getElementById('dataContainer');
+        const searchInput = document.getElementById('searchInput');
+        const searchButton = document.getElementById('searchButton');
+
+        let products = [];
+
+        fetch('produtos.json') // envia solicitaçoes html e recebe dados
+          .then(response => response.json())
+          .then(data => {
+            products = data.data;
+
+            displayProducts(products);
+          });
+
+        searchButton.addEventListener('click', searchProducts);
+
+        function displayProducts(products) {
+            dataContainer.innerHTML = '';
+
+            products.forEach(element => {
+                const itemDiv = document.createElement('div');
+                itemDiv.classList.add('produtos-showcase');
+
+                const linkElement = document.createElement('a');
+                linkElement.href = `singleproduct.html?id=${element.id}`; //vai para uma pagina htmlk especifica do produto escolhido
+
+                const nameElement = document.createElement('h3');
+                const figureElement = document.createElement('figure');
+                const imageElement = document.createElement('img');
+                const priceElement = document.createElement('p');
+                const stockElement = document.createElement('p');
+                const highlightElement = document.createElement('h2'); //formato das infos dos produtos
+
+                nameElement.textContent = element.name;
+                imageElement.src = element.image;
+                priceElement.textContent = `𝙋𝙧𝙚𝙘̧𝙤: ${element.price} €`;
+                stockElement.textContent = `𝙀𝙨𝙩𝙤𝙦𝙪𝙚: ${element.stock} unidades`;
+
+                if (element.highlight === 'sim') {
+                    highlightElement.textContent = 'Produto em destaque🌱'; //busca os produtos em destaque na db
+                }
+
+                figureElement.appendChild(imageElement);
+
+                linkElement.appendChild(nameElement);
+                linkElement.appendChild(figureElement);
+                linkElement.appendChild(priceElement);
+                linkElement.appendChild(stockElement);
+                linkElement.appendChild(highlightElement);
+                itemDiv.appendChild(linkElement);
+                dataContainer.appendChild(itemDiv); //busca os dados de cada coluna db 
+            });
+        }
+
+        function searchProducts(event) {
+            event.preventDefault();
+            const searchTerm = searchInput.value.toLowerCase();
+            const filteredProducts = products.filter(product =>
+                product.name.toLowerCase().includes(searchTerm) //faz com que seja possivel pesquisar um produto pelo seu nome
+            ); 
+
+            displayProducts(filteredProducts);
+        }
+    </script>
+
+</body>
+</html>

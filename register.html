@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projeto Rodrigo e Lucas</title>
+    <script src="https://kit.fontawesome.com/250aeba424.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="style2.css">
+</head>
+<body>
+    <header>
+        <nav>
+            <input type="checkbox" id="check">
+            <label for="check" class="checkbtn">
+                <i class="fas fa-bars"></i>
+            </label>
+            <a href="index.html"><img src="./logo.png" class="logo-header"></a>
+            <ul>
+                <li><a href="index.html" class="navbar-link">Início</a></li>
+                <li><a href="login.html" class="navbar-link">Login</a></li>
+                <li id="actual_page">Registro</a></li>
+                <li><a href="products.html" class="navbar-link">Produtos</a></li>
+                <li class="cart"><a href="carrinho.html" class="navbar-link"><i class="fa-solid fa-cart-shopping" style="color: #ffffff;"></i>Carrinho</a></li>
+            </ul>
+        </nav>
+    </header>
+    <main>
+        <section class="banner2">
+            <div class="register-table">
+                <h1>Register</h1>
+                <form action="http://localhost:3300/register" method="POST">
+                    <label for="name" class="label_title"></label>
+                    <input type="text" id="name" name="name" placeholder="First and last name:" required/><br /><br />
+                
+                    <label for="email" class="label_title"></label>
+                    <input type="text" id="email" name="email" placeholder="Email:" required /><br /><br />
+                
+                    <label for="user" class="label_title"></label>
+                    <input type="text" id="user" name="user" placeholder="User:" required /><br /><br />
+                
+                    <label for="password" class="label_title"></label>
+                    <input type="password" id="password" name="password" placeholder="Password:" required/><br /><br />
+                
+                    <input type="submit" value="Registrar" class="submit_button"/>
+                  </form>
+            </div>
+        </section>
+    </main>
+
+    <script>
+        function validarFormulario() {
+            var nomeInput = document.getElementById("nome");
+            var senhaInput = document.getElementById("senha");
+
+            if (nomeInput.value === "" || senhaInput.value === "") {
+            alert("Preencha todos os campos necessários.");
+            return;
+            }
+
+            if (nomeInput.value !== "" && senhaInput.value !== "") {
+            window.location.href = "products.html";
+            }
+        }
+        
+        const checkBtn = document.getElementById('check');
+        const body = document.querySelector('body');
+
+        checkBtn.addEventListener('change', function() {
+            if (checkBtn.checked) {
+                body.classList.add('no-scroll');
+            } else {
+                body.classList.remove('no-scroll');
+            }
+        });
+    </script>
+</body>
+</html>
